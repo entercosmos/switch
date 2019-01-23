@@ -1,9 +1,77 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
+import {css, cx} from 'emotion'
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
+export default class Switch extends React.Component {
+
+    static propTypes = {
+        id: PropTypes.string,
+        className: PropTypes.string,
+        width: PropTypes.number,
+        value: PropTypes.bool.isRequired,
+        disabled: PropTypes.bool,
+        onChange: PropTypes.func
+    }
+
+    static defaultProps = {
+        width: 46,
+        disabled: false
+    }
+
+    render() {
+
+        const {width, disabled} = this.props
+        const height = width * 0.56
+        const padding = 2
+        const size = height - (padding * 2)
+
+        const active = this.props.value
+
+        return (
+            <div
+                className={cx(
+                    css`
+                    background-color: ${active ? '#3acc85' : '#000'};
+                    display: flex;
+                    flex: none;
+                    border-radius: 99999px;
+                    justify-content: ${active ? 'flex-end' : 'flex-start'};
+                    transition: 300ms ease justify-content;
+                    cursor: pointer;
+                    ${disabled ? '' : 'cursor: pointer;'}
+                    opacity: ${disabled ? '0.7' : '1'};
+                `,
+                    this.props.className
+                )}
+                style={{
+                    height,
+                    width,
+                    padding
+                }}
+                onClick={(e) => {
+
+                    if (disabled) return
+
+                    if (this.props.onChange) {
+                        this.props.onChange({
+                            e,
+                            id: this.props.id,
+                            value: !active
+                        })
+                    }
+                }}
+            >
+                <div
+                    className={css`
+                        background-color: #fff;
+                        border-radius: 50%;
+                        flex: none;
+                    `}
+                    style={{
+                        width: size
+                    }}
+                />
+            </div>
+        )
+    }
 }
