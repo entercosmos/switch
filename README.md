@@ -1,5 +1,7 @@
 # Switch
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/entercosmos/switch.svg)](https://greenkeeper.io/)
+
 [![npm package][npm-badge]][npm]
 
 Used for making a choice between yes and no.
