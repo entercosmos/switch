@@ -31,7 +31,7 @@ export default class Switch extends React.Component {
             <div
                 className={cx(
                     css`
-                    background-color: ${active ? '#3acc85' : '#000'};
+                    background-color: ${active ? '#07f' : '#000'};
                     display: flex;
                     flex: none;
                     border-radius: 99999px;
