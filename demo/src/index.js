@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
+import {Canvas, Heading, Paragraph, Box} from '@cmds/demo-utils'
 import {css} from 'emotion'
 import {injectGlobal} from 'emotion'
 
@@ -9,6 +10,7 @@ injectGlobal`
     }
     body {
         font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+        margin: 0;
     }
 `
 
@@ -22,14 +24,10 @@ class Example1 extends Component {
 
     render() {
         return <div>
-            <h2>
-                Checkbox (true)
-            </h2>
-            <div
-                className={css`
-                    width: 200px;
-                `}
-            >
+            <Heading>
+                Switch that's switched on
+            </Heading>
+            <Box>
                 <Switch
                     value={this.state.value}
                     onChange={({value}) => {
@@ -39,13 +37,15 @@ class Example1 extends Component {
                         })
                     }}
                 />
-            </div>
-            <h3>
+            </Box>
+            <Paragraph>
                 State
-            </h3>
-            <pre>
-                {JSON.stringify(this.state, null, 2)}
-            </pre>
+            </Paragraph>
+            <Box>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
+            </Box>
         </div>
     }
 }
@@ -58,14 +58,10 @@ class Example2 extends Component {
 
     render() {
         return <div>
-            <h2>
-                Checkbox (false)
-            </h2>
-            <div
-                className={css`
-                    width: 200px;
-                `}
-            >
+            <Heading>
+                Switch that's switched off
+            </Heading>
+            <Box>
                 <Switch
                     value={this.state.value}
                     onChange={({value}) => {
@@ -75,13 +71,15 @@ class Example2 extends Component {
                         })
                     }}
                 />
-            </div>
-            <h3>
+            </Box>
+            <Paragraph>
                 State
-            </h3>
-            <pre>
-                {JSON.stringify(this.state, null, 2)}
-            </pre>
+            </Paragraph>
+            <Box>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
+            </Box>
         </div>
     }
 }
@@ -94,14 +92,10 @@ class Example3 extends Component {
 
     render() {
         return <div>
-            <h2>
-                Checkbox (disabled)
-            </h2>
-            <div
-                className={css`
-                    width: 200px;
-                `}
-            >
+            <Heading>
+                Switch that's switched off and disabled
+            </Heading>
+            <Box>
                 <Switch
                     value={this.state.value}
                     disabled={true}
@@ -112,13 +106,15 @@ class Example3 extends Component {
                         })
                     }}
                 />
-            </div>
-            <h3>
+            </Box>
+            <Paragraph>
                 State
-            </h3>
-            <pre>
-                {JSON.stringify(this.state, null, 2)}
-            </pre>
+            </Paragraph>
+            <Box>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
+            </Box>
         </div>
     }
 }
@@ -128,12 +124,11 @@ class Demo extends React.Component {
     render() {
 
         return (
-            <div>
-                <h1>Switch Demo</h1>
+            <Canvas>
                 <Example1/>
                 <Example2/>
                 <Example3/>
-            </div>
+            </Canvas>
         )
     }
 }

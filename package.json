@@ -1,6 +1,6 @@
 {
   "name": "@cmds/switch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Used for making a choice between yes and no.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "deploy": "cd demo/dist && surge --domain cmds-switch.surge.sh",
+    "deploy": "cd demo/dist && surge --project ./ --domain cmds-switch.surge.sh",
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
@@ -28,6 +28,7 @@
     "react": "16.x"
   },
   "devDependencies": {
+    "@cmds/demo-utils": "^0.2.0",
     "nwb": "0.23.x",
     "react": "^16.6.1",
     "react-dom": "^16.6.1"
