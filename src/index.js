@@ -38,7 +38,7 @@ export default class Switch extends React.Component {
                     justify-content: ${active ? 'flex-end' : 'flex-start'};
                     transition: 300ms ease justify-content;
                     cursor: pointer;
-                    ${disabled ? '' : 'cursor: pointer;'}
+                    ${disabled ? 'cursor: default;' : 'cursor: pointer;'}
                     opacity: ${disabled ? '0.7' : '1'};
                 `,
                     this.props.className
